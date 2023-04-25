@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect
 from data import db_session
 from data.news import News
 from sqlalchemy.orm import session
@@ -11,14 +11,12 @@ def main():
     db_session.global_init("db/news.db")
     app.run()
 
+
 @app.route('/')
 def show_news():
     db_sess = db_session.create_session()
     news = [(i.title, i.content, i.description) for i in db_sess.query(News).all()]
-    print(news)
     return render_template('news.html', news=news)
-
-
 
 
 @app.route('/news/<article_name>')
@@ -32,7 +30,7 @@ def news_creator():
         news_name = request.form['newsname']
         desc = request.form['description']
         content = request.form['newscontent']
-        with open(f'templates/{news_name}.html', 'w') as page:
+        with open(f'templates/{news_name}.html', 'w', encoding='UTF-8') as page:
             page.write(content)
             page.close()
         db_sess = db_session.create_session()
@@ -42,7 +40,7 @@ def news_creator():
         news_db.description = desc
         db_sess.add(news_db)
         db_sess.commit()
-        return show_news()
+        return redirect("http://127.0.0.1:5000", code=200)
     else:
         return render_template('index.html')
 

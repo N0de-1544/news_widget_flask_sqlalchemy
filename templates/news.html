@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Новости</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/newsstyle.css')}}">
 </head>
 <body>
     {% for title, content, desc in news %}
-        <a href={{content}}>{{title}}</a>
-        <p>{{desc}}</p>
+        <form>
+            <a href={{content}}>{{title}}</a>
+            <p>{{desc}}</p>
+        </form>
     {% endfor %}
 </body>
 </html>
