@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+<form class="news_submit" method="post">
+    <div>
+        <label for="newsname">Название для страницы с новостью.</label>
+    </div>
+    <input type="text" id="newsname" name="newsname">
+    <div>
+        <label for="description">Аннотация к новости.</label>
+    </div>
+    <textarea id="description" name="description" rows="4" cols="150"></textarea>
+    <div>
+        <label for="newscontent">Содержимое новостной страницы (html-код).</label>
+    </div>
+    <textarea id="newscontent" name="newscontent" rows="40" cols="150"></textarea>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+form.news_submit {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 1320px;
+    background-color: #dfa48b;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+}
+textarea{
+    resize: none;
+}
+label{
+font-family: "Lucida Console"
+}
