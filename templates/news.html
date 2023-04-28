@@ -6,11 +6,15 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/newsstyle.css')}}">
 </head>
 <body>
+{% if news != [] %}
     {% for title, content, desc in news %}
         <form>
             <a href={{content}}>{{title}}</a>
             <p>{{desc}}</p>
         </form>
     {% endfor %}
+{% else %}
+    <h1>Не найдены новости!</h1>
+{% endif %}
 </body>
 </html>

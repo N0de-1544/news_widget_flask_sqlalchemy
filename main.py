@@ -40,7 +40,7 @@ def news_creator():
         news_db.description = desc
         db_sess.add(news_db)
         db_sess.commit()
-        return redirect("http://127.0.0.1:5000", code=200)
+        return redirect("http://127.0.0.1:4190", code=200)
     else:
         return render_template('index.html')
 
